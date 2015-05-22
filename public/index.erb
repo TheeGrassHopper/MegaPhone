@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Speek UP</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<title>MegaPhone</title>
+	<link rel="stylesheet" type="text/css" href="./Css/style.css">
 </head>
 <body>
+	<div class="block">
+		
+		<% @voice.each do |voice| %>	
+	<li>
+  		<%= voice.voice %>
+ 		<%= voice.created_at %>
+	</li>	
+	<% end %>
 
-	<h1>MegaPhone</h1>
+		
 
-	<input type="text"></input>
-	<input type="submit"> </input>
-	
+
+
+
+
+		<!-- <form action="/index" method="post">
+			<input type="text" name="voice"><%= @voice %> </input>
+			<button type="submit">Voice!</button>
+		</form>		 -->
+	</div>
 
 </body>
 </html>
