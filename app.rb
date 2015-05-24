@@ -1,12 +1,26 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'csv'
 
-class MegaPhone
 
-	get '/' do
-		@voice = voice.create(voice: params["voice"], created_at: params[Time.now])
-		erb :index
-	end
-		erb :index
+		get '/' do
+			@voice= CSV.read('/posts.csv') 
+			erb :index
+		end
 	
-end
+
+
+		post '/' do 
+			CSV.open('/posts.csv').each do |csv|
+				csv << params[:post]
+			end
+			redirect '/'
+		end
+
+		
+		
+
+
+
+
+
